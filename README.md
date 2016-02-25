@@ -1,4 +1,4 @@
-# esb-connector-postcodelookup
+### PostCodeLookup ESB Connector
 The PostCodeLookup connector allows you to access the PostCodeLookup REST API through WSO2 ESB.
 
 ###Build

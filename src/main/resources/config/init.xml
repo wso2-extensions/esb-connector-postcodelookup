@@ -17,15 +17,15 @@
   ~  under the License.
   -->
 <template name="init" onError="fault" xmlns="http://ws.apache.org/ns/synapse">
-   <parameter name="apiUrl" description="api url of the API"/>
-   <parameter name="apiKey" description="api key of the API"/>
-   <sequence>
-      <property name="uri.var.apiUrl" expression="$func:apiUrl"/>
-      <property name="uri.var.apiKey" expression="$func:apiKey"/>
-      <filter source="boolean(get-property('uri.var.apiUrl'))" regex="false">
-         <then>
-            <property name="uri.var.apiUrl" value="ws.postcoder.com"/>
-         </then>
-      </filter>
-   </sequence>
+    <parameter name="apiUrl" description="api url of the API"/>
+    <parameter name="apiKey" description="api key of the API"/>
+    <sequence>
+        <property name="uri.var.apiUrl" expression="$func:apiUrl"/>
+        <property name="uri.var.apiKey" expression="$func:apiKey"/>
+        <filter source="boolean(get-property('uri.var.apiUrl'))" regex="false">
+            <then>
+                <property name="uri.var.apiUrl" value="ws.postcoder.com"/>
+            </then>
+        </filter>
+    </sequence>
 </template>

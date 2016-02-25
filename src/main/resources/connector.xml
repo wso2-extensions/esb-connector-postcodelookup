@@ -17,8 +17,8 @@
   ~  under the License.
   -->
 <connector>
-    <component name="postcodelookup" package="org.wso2.carbon.connector" >
-        <dependency component="config" />
-        <dependency component="postcodelookup" />
+    <component name="postcodelookup" package="org.wso2.carbon.connector">
+        <dependency component="config"/>
+        <dependency component="postcodelookup"/>
     </component>
 </connector>

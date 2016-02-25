@@ -16,11 +16,11 @@
   ~  specific language governing permissions and limitations
   ~  under the License.
   -->
-<component name="postcodelookup" type="synapse/template" >
+<component name="postcodelookup" type="synapse/template">
     <subComponents>
-		<component name="postcodelookup" >
-	    		<file>postcodelookup.xml</file>
-	    		<description>Post code lookup connector method</description>
-		</component>
+        <component name="postcodelookup">
+            <file>postcodelookup.xml</file>
+            <description>Post code lookup connector method</description>
+        </component>
     </subComponents>
 </component>

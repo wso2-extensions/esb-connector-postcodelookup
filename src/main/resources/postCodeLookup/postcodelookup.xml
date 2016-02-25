@@ -39,7 +39,7 @@
         <property name="uri.var.page" expression="$func:page"/>
         <property name="uri.var.postcodeonly" expression="$func:postcodeonly"/>
         <script language="js">
-        <![CDATA[
+            <![CDATA[
             var map = [];
             map['format'] = mc.getProperty('uri.var.responseType');
             map['lines'] = mc.getProperty('uri.var.lines');
@@ -53,7 +53,7 @@
             var query = "?";
             for (var key in map) {
                 if(map[key] != "" && map[key]){
-                query += key + '=' + map[key] + '&';
+                    query += key + '=' + map[key] + '&';
                 }
             }
            mc.setProperty('uri.var.query', query);

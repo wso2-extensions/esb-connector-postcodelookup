@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~ Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
   ~
   ~   WSO2 Inc. licenses this file to you under the Apache License,
   ~   Version 2.0 (the "License"); you may not use this file except
@@ -40,31 +40,69 @@
         <property name="uri.var.postcodeonly" expression="$func:postcodeonly"/>
         <script language="js">
             <![CDATA[
-            var map = [];
-            map['format'] = mc.getProperty('uri.var.responseType');
-            map['lines'] = mc.getProperty('uri.var.lines');
-            map['include'] = mc.getProperty('uri.var.include');
-            map['exclude'] = mc.getProperty('uri.var.exclude');
-            map['addtags'] = mc.getProperty('uri.var.addtags');
-            map['identifier'] = mc.getProperty('uri.var.identifier');
-            map['callback'] = mc.getProperty('uri.var.callback');
-            map['page'] = mc.getProperty('uri.var.page');
-            map['postcodeonly'] = mc.getProperty('uri.var.postcodeonly');
-            var query = "?";
-            for (var key in map) {
-                if(map[key] != "" && map[key]){
-                    query += key + '=' + map[key] + '&';
+                //url param variables
+                var responseType = mc.getProperty("responseType");
+                var lines = mc.getProperty("lines");
+                var include = mc.getProperty("include");
+                var exclude = mc.getProperty("exclude");
+                var addtags = mc.getProperty("addtags");
+                var identifier = mc.getProperty("identifier");
+                var callback = mc.getProperty("callback");
+                var page = mc.getProperty("page");
+                var postcodeonly = mc.getProperty("postcodeonly");
+                //url param processing start
+                var urlParamString = '';
+                if (responseType != "" && responseType != null) {
+                    urlParamString += '&responseType=' + responseType;
                 }
-            }
-           mc.setProperty('uri.var.query', query);
-         ]]></script>
-        <property name="uri.var.queryParams" expression="get-property('uri.var.query')"/>
-        <property name="uri.var.endpoint" expression="fn:concat('http://',$ctx:uri.var.apiUrl,'/pcw/',
-        $ctx:uri.var.apiKey,'/address/uk/',$ctx:uri.var.searchTerm,$ctx:uri.var.queryParams)"/>
-        <call>
-            <endpoint>
-                <http method="GET" uri-template="{uri.var.endpoint}"/>
-            </endpoint>
-        </call>
+                if (lines != "" && lines != null) {
+                    urlParamString += '&lines=' + lines;
+                }
+                if (include != "" && include != null) {
+                    urlParamString += '&include=' + include;
+                }
+                if (exclude != "" && exclude != null) {
+                    urlParamString += '&exclude=' + exclude;
+                }
+                if (addtags != "" && addtags != null) {
+                    urlParamString += '&addtags=' + addtags;
+                }
+                if (identifier != "" && identifier != null) {
+                    urlParamString += '&identifier=' + identifier;
+                }
+                if (callback != "" && callback != null) {
+                    urlParamString += '&callback=' + callback;
+                }
+                if (page != "" && page != null) {
+                    urlParamString += '&page=' + page;
+                }
+                if (postcodeonly != "" && postcodeonly != null) {
+                    urlParamString += '&postcodeonly=' + postcodeonly;
+                }
+                if(urlParamString != '') {
+                    urlParamString = '?' + urlParamString.toString().substring(1);
+                }
+                mc.setProperty('uri.var.urlParamString', urlParamString);
+                //url param processing end
+            ]]>
+        </script>
+        <filter source="$ctx:postcodelookupBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <http method="GET"
+                              uri-template="{uri.var.apiUrl}/pcw/{uri.var.apiKey}/address/uk/{uri.var.searchTerm}{+uri.var.urlParamString}"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <http method="GET"
+                              uri-template="{uri.var.apiUrl}/pcw/{uri.var.apiKey}/address/uk/{uri.var.searchTerm}{+uri.var.urlParamString}"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
     </sequence>
 </template>

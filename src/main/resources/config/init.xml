@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~ Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
   ~
   ~   WSO2 Inc. licenses this file to you under the Apache License,
   ~   Version 2.0 (the "License"); you may not use this file except
@@ -22,9 +22,10 @@
     <sequence>
         <property name="uri.var.apiUrl" expression="$func:apiUrl"/>
         <property name="uri.var.apiKey" expression="$func:apiKey"/>
+        <property name="postcodelookupBlocking" expression="$func:blocking"/>
         <filter source="boolean(get-property('uri.var.apiUrl'))" regex="false">
             <then>
-                <property name="uri.var.apiUrl" value="ws.postcoder.com"/>
+                <property name="uri.var.apiUrl" value="http://ws.postcoder.com"/>
             </then>
         </filter>
     </sequence>

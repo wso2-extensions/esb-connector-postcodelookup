@@ -1,0 +1,8 @@
+{
+    "apiUrl":"%s(apiUrl)",
+    "apiKey":"%s(apiKey)",
+    "searchTerm":"%s(searchTerm)",
+    "responseType":"%s(responseType)",
+    "lines":"%s(lines)",
+    "postcodeonly":"%s(postcodeonly)"
+}

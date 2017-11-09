@@ -3,20 +3,20 @@ Product: Integration tests for WSO2 ESB PostCodeLookup connector
 Pre-requisites:
 
  - Maven 3.x
- - Java 1.6 or above
+ - Java 1.8
  - The org.wso2.esb.integration.integration-base project is required. The test suite has been configured to download this project automatically. If the automatic download fails, download the following project and compile it using the mvn clean install command to update your local repository:
    https://github.com/wso2-extensions/esb-integration-base
 
 Tested Platform: 
 
  - UBUNTU 16.04
- - WSO2 ESB 5.0.0
+ - WSO2 EI 6.1.1
 
 Steps to follow in setting integration test.
 
- 1. Download ESB 5.0.0 and add "-XX:-UseSplitVerifier" under $JVM_MEM_OPTS into {ESB_HOME}/bin/wso2server.sh.
+ 1. Download EI 6.1.1.
 
- 2. Compress the modified ESB as wso2esb-5.0.0.zip and copy that zip file in to location "<POSTCODELOOKUP_HOME>/repository/".
+ 2.Place the EI 6.1.1.zip file in to location "<POSTCODELOOKUP_HOME>/repository/".
 
  3. Create postcodelookup account with https://www.alliescomputing.com/postcoder/sign-up and obtain apiKey by navigating API -> Credentials
 

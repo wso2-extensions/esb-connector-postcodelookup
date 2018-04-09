@@ -117,3 +117,4 @@ public class PostcodelookupConnectorIntegrationTest extends ConnectorIntegration
         Assert.assertEquals(apiRestResponse.getBody().getString("output"), esbRestResponse.getBody().getString("output"));
     }
 }
+

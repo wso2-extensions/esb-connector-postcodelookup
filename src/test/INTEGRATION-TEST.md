@@ -1,13 +1,13 @@
-Product: Integration tests for WSO2 ESB PostCodeLookup connector
+### Integration tests for WSO2 EI PostCodeLookup connector
 
-Pre-requisites:
+### Pre-requisites:
 
  - Maven 3.x
  - Java 1.8
  - The org.wso2.esb.integration.integration-base project is required. The test suite has been configured to download this project automatically. If the automatic download fails, download the following project and compile it using the mvn clean install command to update your local repository:
    https://github.com/wso2-extensions/esb-integration-base
 
-Tested Platform: 
+### Tested Platform: 
 
  - UBUNTU 16.04
  - WSO2 EI 6.4.0
@@ -23,10 +23,10 @@ Steps to follow in setting integration test.
 
  4. Update the PostCodeLookup properties file at location "<POSTCODELOOKUP_HOME>/src/test/resources/artifacts/ESB/connector/config" as below.
 	
-	01) apiUrl                      - Endpoint URL of the API. Use http://ws.postcoder.com
-	02) apiKey                      - API Key obtained via 3.
+	    i)  apiUrl            - Endpoint URL of the API. Use http://ws.postcoder.com
+	    ii) apiKey            - API Key obtained via 3.
 
- 5. Navigate to "<POSTCODELOOKUP_HOME>/" and run the following command.
-      $ mvn clean install -Dskip-tests=false
+ 5. Navigate to "<POSTCODELOOKUP_HOME>/" and run the following command.<br/>
+      ```$ mvn clean install -Dskip-tests=false```
 
 		

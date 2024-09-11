@@ -4,7 +4,7 @@
     "category": "Other",
     "documentationUrl": "https://docs.wso2.com/display/ESBCONNECTORS/Postcode+Lookup+Connector",
     "description": "The Postcode lookup connector allows you to access the Postcode lookup REST API through WSO2 ESB. ",
-    "status": "Active",
+    "status": "Inactive",
     "labels": [
         "postcode"
     ],
